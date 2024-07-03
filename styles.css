@@ -1,0 +1,206 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.glitch-container {
+    flex: 1;
+    text-align: center;
+}
+
+.message-container {
+    flex: 1;
+    padding-left: 20px;
+    color: black;
+    text-align: center;
+}
+
+.glitch {
+    position: relative;
+    color: white;
+    animation: glitch 1s infinite;
+    margin-bottom: 0;
+}
+
+.glitch[data-text="404"] {
+    font-size: 8rem;
+    margin-bottom: 5px;
+}
+
+.glitch[data-text="page not found"] {
+    font-size: 2.25rem;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+    0% {
+        clip: rect(42px, 9999px, 44px, 0);
+        transform: skew(0.52deg);
+    }
+    5% {
+        clip: rect(43px, 9999px, 96px, 0);
+        transform: skew(0.18deg);
+    }
+    10% {
+        clip: rect(74px, 9999px, 36px, 0);
+        transform: skew(0.19deg);
+    }
+    15% {
+        clip: rect(85px, 9999px, 25px, 0);
+        transform: skew(0.23deg);
+    }
+    20% {
+        clip: rect(7px, 9999px, 97px, 0);
+        transform: skew(0.5deg);
+    }
+    25% {
+        clip: rect(35px, 9999px, 95px, 0);
+        transform: skew(0.26deg);
+    }
+    30% {
+        clip: rect(9px, 9999px, 92px, 0);
+        transform: skew(0.44deg);
+    }
+    35% {
+        clip: rect(88px, 9999px, 92px, 0);
+        transform: skew(0.43deg);
+    }
+    40% {
+        clip: rect(86px, 9999px, 55px, 0);
+        transform: skew(0.56deg);
+    }
+    45% {
+        clip: rect(94px, 9999px, 68px, 0);
+        transform: skew(0.21deg);
+    }
+    50% {
+        clip: rect(24px, 9999px, 58px, 0);
+        transform: skew(0.2deg);
+    }
+    55% {
+        clip: rect(28px, 9999px, 65px, 0);
+        transform: skew(0.44deg);
+    }
+    60% {
+        clip: rect(77px, 9999px, 10px, 0);
+        transform: skew(0.27deg);
+    }
+    65% {
+        clip: rect(94px, 9999px, 62px, 0);
+        transform: skew(0.38deg);
+    }
+    70% {
+        clip: rect(77px, 9999px, 65px, 0);
+        transform: skew(0.39deg);
+    }
+    75% {
+        clip: rect(94px, 9999px, 55px, 0);
+        transform: skew(0.34deg);
+    }
+    80% {
+        clip: rect(52px, 9999px, 62px, 0);
+        transform: skew(0.6deg);
+    }
+    85% {
+        clip: rect(55px, 9999px, 25px, 0);
+        transform: skew(0.21deg);
+    }
+    90% {
+        clip: rect(68px, 9999px, 14px, 0);
+        transform: skew(0.56deg);
+    }
+    95% {
+        clip: rect(90px, 9999px, 96px, 0);
+        transform: skew(0.26deg);
+    }
+    100% {
+        clip: rect(75px, 9999px, 22px, 0);
+        transform: skew(0.46deg);
+    }
+}
+
+.message-container p {
+    font-size: 2.25rem;
+    color: black;
+    -webkit-text-stroke: 1px red;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #ff0000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #cc0000;
+}
+
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .message-container {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+    .glitch[data-text="404"] {
+        font-size: 5rem;
+    }
+    .glitch[data-text="page not found"] {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    .message-container p {
+        font-size: 1.5rem;
+    }
+}
